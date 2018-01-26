@@ -1,0 +1,28 @@
+version: '2'
+services:
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - ./data:/data/db
+    ports:
+      - '27017:27017'
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=user
+      - MONGO_INITDB_ROOT_PASSWORD=password
+  redis:
+    image: redis
+    volumes:
+      - ../data/redis:/data
+    ports:
+      - '6379:6379'
+  api:
+    build: .
+    volumes: 
+      - '.:/home/api'
+    ports:
+      - 3000:3000
+    links:
+      - mongodb
+      - redis
+    depends_on:
+      - mongodb
