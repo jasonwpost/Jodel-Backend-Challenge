@@ -17,7 +17,32 @@ run `docker-compose up -d`
 
 ## Running the e2e tests
 
-Once the api is running, run `npm test` in the directory
+Once the api is running, run `npm test` in the directory.
+
+## API Details
+
+Two endpoints are available:
+
+- `POST localhost:3000`
+
+You can post any JSON object. The model is `{}` without strictness. Performing this request will invalidate the redis cache. Response is simply a response code.
+
+- `GET localhost:3000`
+
+Retrieves a paginated list of objects. Response model is:
+
+```
+{
+	"docs": [{}],
+	"offset": 0, // defaults to 0
+	"limit": 0, // defaults to 20
+	"total": 0, // number of objects in DB
+}
+```
+
+query parameters include offset, limit and q (query). The query can be passed as an encoded JSON object, such as: `{"key":"value"}`
+
+An example request looks like `GET localhost:3000/?q={"test":"value"}&offset=10&limit=15`
 
 ---
 
