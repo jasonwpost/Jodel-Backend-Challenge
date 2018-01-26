@@ -1,5 +1,26 @@
 # Backend Code Challenge
 
+
+## How to run
+
+Clone the repo and cd into the directory. You then have two options:
+
+### Running the API locally with Mongo and Redis in Docker containers
+
+run `sudo sh startup.sh`
+
+to quit, input `^c`, and then run  `sh teardown.sh`
+
+### Running everything in docker containers
+
+run `docker-compose up -d`
+
+## Running the e2e tests
+
+Once the api is running, run `npm test` in the directory
+
+---
+
 Welcome!
 
 For this code challenge we would like you to write a simple NodeJS REST API project in [express.js](https://expressjs.com/) framework, and then extend it with some functionalities below.
