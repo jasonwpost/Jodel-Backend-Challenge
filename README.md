@@ -44,6 +44,8 @@ query parameters include offset, limit and q (query). The query can be passed as
 
 An example request looks like `GET localhost:3000/?q={"test":"value"}&offset=10&limit=15`
 
+Redis will cache each request based on the query parameters.
+
 ---
 
 Welcome!
