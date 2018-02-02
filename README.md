@@ -13,6 +13,10 @@ to quit, input `^c`, and then run  `sh teardown.sh`
 
 ### Running everything in docker containers
 
+run `npm install`
+
+and then
+
 run `docker-compose up -d`
 
 ## Running the e2e tests

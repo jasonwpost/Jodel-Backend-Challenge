@@ -17,7 +17,7 @@ services:
       - '6379:6379'
   api:
     build: .
-    volumes: 
+    volumes:
       - '.:/home/api'
     ports:
       - 3000:3000
@@ -26,3 +26,4 @@ services:
       - redis
     depends_on:
       - mongodb
+      - redis
